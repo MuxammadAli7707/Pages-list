@@ -1,24 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
 body {
-  background-color: #fff;
+  background-color: var(--body-color);
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   display: flex;
   flex-direction: column;
+  transition: all 0.4s ease;
 }
 
 :root {
   --primary-color: #161c2d;
   --text-color: #5b606c;
-  --background-color: #fff;
+  --body-color: #fff;
+  --box-color: #fff
 }
 
 .dark {
   --primary-color: #fff;
   --text-color: #babbc0;
-  --background-color: #161c2d;
+  --body-color: #161c2d;
+  --box-color: #161616;
 }
 
 .site-header {
@@ -28,7 +31,7 @@ body {
   top: 0;
   left: 0;
   z-index: 10;
-  background-color: #fff;
+  background-color: var(--body-color);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -56,6 +59,7 @@ body {
   line-height: 24px;
   text-transform: lowercase;
   transition: all 0.5s ease;
+  color: var(--primary-color);
 }
 
 .nav-link,
@@ -110,8 +114,9 @@ body {
   font-size: 15px;
   font-weight: 700;
   letter-spacing: -0.5px;
-  transition: all 0.5s ease;
   text-transform: lowercase;
+  color: #161c2d;
+  margin-bottom: 20px;
 }
 
 .hover-link:hover {
@@ -144,6 +149,10 @@ body {
   font-size: 18px;
   transition: all 0.5s ease;
 }
+.hover-link:hover .bxs-chevron-right {
+  color: #495fef;
+  transform: rotate(-180deg);
+}
 
 #hero-intro{
   padding: 200px 0;
@@ -174,33 +183,32 @@ body {
   font-weight: 700;
   letter-spacing: 1.63px;
   text-transform: uppercase;
-  padding: 23px 30px;
+  padding: 22px 40px;
   box-shadow: rgb(3 3 3 / 12%) 0px 32px 54px;
   border-radius: 50px;
   border: none;
   color: #fff;
   background-color: #495fef;
   cursor: pointer;
-  position: relative;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
 }
 
 .hero-btn:hover {
-  animation: top 1s both;
-  transition: all 1s ease;
-}
-@keyframes top {
-  0% {
-    bottom: 0;
-  }
-  100% {
-    bottom: 20px;
-  }
+  transform: translate(0, -10px);
+  transition: all 0.5s ease;
 }
 
-.bx-right-arrow-alt {
-  margin-left: 20px;
+.bx-arrow-back {
+  transform: rotate(180deg);
+  position: relative;
+  left: 14px;
   font-size: 25px;
+  bottom: 1px;
+}
+
+#site-main {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .main-link {
@@ -221,9 +229,9 @@ body {
   color: #495fef;
 }
 
-.imag-box{
+.img-box {
   width: 100%;
-  min-height: 1170px;
+  min-height: 1140px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(11, 1fr);
@@ -235,6 +243,46 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+.hover-img {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  right: 20px;
+  opacity: 0;
+  border-radius: 8px;
+  z-index: 1;
+  padding: 1.25rem 1.875rem;
+  transition: all 0.4s ease 0s;
+}
+
+.img-item:hover .hover-img {
+  background: var(--box-color);
+  bottom: 30px;
+  opacity: 0.9;
+}
+
+.img-text {
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  margin-right: 100px;
+  line-height: 1.63;
+  letter-spacing: 1.63px;
+}
+
+.img-link {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 24px;
+  line-height: 1.42;
+  letter-spacing: -0.5px;
+}
+.img-link:hover {
+  color: #495fef;
 }
 
 .img-item:nth-child(1) {
@@ -337,35 +385,27 @@ img {
   font-weight: 700;
   letter-spacing: 1.63px;
   text-transform: uppercase;
-  padding: 23px 30px;
+  padding: 22px 40px;
   box-shadow: rgb(3 3 3 / 12%) 0px 32px 54px;
   border-radius: 50px;
   border: none;
   color: #fff;
   background-color: #56b381;
   cursor: pointer;
-  position: relative;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   margin: 0 auto;
 }
 
 .bxs-message-rounded {
-  font-size: 18px;
-  margin-right: 15px;
+  font-size: 22px;
+  left: -10%;
   transform: rotateY(180deg);
+  position: relative;
 }
 
 .freelance-btn:hover {
-  animation: top 1s ease both;
-  transition: all 1s ease;
-}
-@keyframes top {
-  0% {
-    bottom: 0;
-  }
-  100% {
-    bottom: 20px;
-  }
+  transform: translate(0, -10px);
+  transition: all 0.5s ease;
 }
 
 #site-footer {
@@ -380,4 +420,21 @@ img {
   text-transform: uppercase;
 }
 
-
+.bx-chevron-left {
+  position: fixed;
+  bottom: 55%;
+  right: 0%;
+  width: 30px;
+  height: 50px;
+  background-color: #495fef;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 50px;
+  border-bottom: 50px;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  right: 5px;
+}
