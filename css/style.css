@@ -51,7 +51,8 @@ html {
 
 .nav-list,
 .hover-list,
-.hover-list-s,
+.nav-list-s,
+.drop-list,
 .main-list {
   list-style: none;
 }
@@ -104,7 +105,6 @@ html {
   color: #495fef;
   transition: all 0.5s ease;
 }
-
 .nav-item:hover .bxs-chevron-down {
   color: #495fef;
   transform: rotate(-180deg);
@@ -127,6 +127,16 @@ html {
   color: #495fef;
 }
 
+.nav-item-s {
+  position: relative;
+  padding: 18px;
+  font-size: 15px;
+  line-height: 24px;
+  text-transform: lowercase;
+  transition: all 0.5s ease;
+  color: var(--primary-color);
+}
+
 .hover-box-s {
   position: absolute;
   top: 100%;
@@ -140,9 +150,13 @@ html {
   display: none;
 }
 
-.nav-item:hover .hover-box-s {
+.nav-item-s:hover .hover-box-s {
   top: 100%;
   display: block;
+  transition: all 0.5s ease;
+}
+.nav-item-s:hover {
+  color: #495fef;
   transition: all 0.5s ease;
 }
 
@@ -153,10 +167,13 @@ html {
   font-size: 18px;
   transition: all 0.5s ease;
 }
-.hover-link:hover .bxs-chevron-right {
+.nav-item-s:nth-child(1):hover .bxs-chevron-right {
   color: #495fef;
   transform: rotate(-180deg);
 }
+
+
+
 
 #hero-intro{
   padding: 200px 0;
